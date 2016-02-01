@@ -5,6 +5,8 @@
 
 \usepackage{graphicx}
 
+
+\graphicspath{ {./figs/} }
 %----------------------------------------------------------------------------------------
 % TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -28,22 +30,46 @@
 \section{Literature review}
 
 \section{Conceptual model}
+Cellular automata divides the simulation domain into regular cells.
+Each cell can be labeled as \textbf{allowed} or \textbf{forbidden} 
+corresponding to the street and off-street area respectively. We 
+build models for pedestrians and the floor and update the their
+status based on the interaction between these two objects.
 
 \subsection{Inputs}
 
 In order to simulate the pedestrian flow outside Georgia Tech's Bobby Dodd Stadium,
 we need some real physical data about the stadium, pedestrians and street configuration
-around the stadium. Also, variables like pedestrians' speed, space needed by people 
-with different body sizes should vary and follow some distribution. 
+around the stadium. Even though, variables like pedestrians' speed, 
+space needed by people with different body sizes should vary individually, we use 
+average value instead to simply our simulation.
 
-\paragraph{Velocity} Regarding the difference of age, gender, and so on, pedestrian
-will not have a uniform velocity. Follow reference ** and our owe daily experience, 
-we propose that pedestrians' velocity is described by a Gaussian distribution of form
+\paragraph{Velocity} Follow reference ** and our own daily experience, we propose the
+average pedestrian speed is $1.34 m/s$. 
+
+\paragraph{Cellular space} Different people may occupy different size on the 
+street. In order to take this fact into consideration, we take a square cellular 
+configuration, in which each cell has edge length $0.3m$. And a pedestrian
+who requires more space will have empty cells round them. We generate a distribution 
+of the empty cells by each pedestrian.
 \begin{equation}
-  \label{eq:velocity}
-  v = \exp\{\frac{(x-1.34)^2}{0.26^2}\}
+  \label{eq:1}
+  p(n) = e^{-\alpha n}
 \end{equation}
-In cellular automata, this means that some pedestrian may move more than one
+
+\paragraph{Map construction}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\textwidth]{map}
+  \caption{Stadium area from Google Map.}
+  \label{fig:map}
+\end{figure}
+
+The stadium area is shown in Fig.~\ref{fig:map}. Using Google Map distance
+service, we get the west-east distance 483 meters and north-south distance
+466 meters. [todo: insert a simplified map here]
+
 
 \paragraph{Space of each pedestrian} We know that different people may
 
@@ -51,11 +77,15 @@ In cellular automata, this means that some pedestrian may move more than one
 
 \subsection{simulation components and rules}
 
-\paragraph{Map construction}
-
 \paragraph{Floor model}
+Static floor field: 
+
 
 \paragraph{Pedestrian model}
+
+\paragraph{Transition matrix}
+
+\paragraph{Resolving conflicts}
 
 \paragraph{update strategy}
 
