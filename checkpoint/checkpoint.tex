@@ -1,0 +1,64 @@
+\documentclass[paper=a4, fontsize=11pt]{article} % A4 paper and 11pt font size
+\usepackage[bottom=1.2in]{geometry}
+
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{graphicx}
+
+%----------------------------------------------------------------------------------------
+% TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{	Simulation of Pedestrian Movement Outside Football Stadium}
+
+\author{Xiong Ding, **, ** (add your name)} % Your name
+
+\date{\today} % Today's date or a custom date
+
+
+%----------------------------------------------------------------------------------------
+% content section
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle % Print the title
+
+\section{Problem Description}
+
+\section{Literature review}
+
+\section{Conceptual model}
+
+\subsection{Inputs}
+
+In order to simulate the pedestrian flow outside Georgia Tech's Bobby Dodd Stadium,
+we need some real physical data about the stadium, pedestrians and street configuration
+around the stadium. Also, variables like pedestrians' speed, space needed by people 
+with different body sizes should vary and follow some distribution. 
+
+\paragraph{Velocity} Regarding the difference of age, gender, and so on, pedestrian
+will not have a uniform velocity. Follow reference ** and our owe daily experience, 
+we propose that pedestrians' velocity is described by a Gaussian distribution of form
+\begin{equation}
+  \label{eq:velocity}
+  v = \exp\{\frac{(x-1.34)^2}{0.26^2}\}
+\end{equation}
+In cellular automata, this means that some pedestrian may move more than one
+
+\paragraph{Space of each pedestrian} We know that different people may
+
+\subsection{Outputs}
+
+\subsection{simulation components and rules}
+
+\paragraph{Map construction}
+
+\paragraph{Floor model}
+
+\paragraph{Pedestrian model}
+
+\paragraph{update strategy}
+
+%------------------------------------------------------------------------
+
+\end{document}
